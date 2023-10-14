@@ -1,0 +1,33 @@
+version: '3.0'
+
+networks:
+  nim:
+
+services:
+  nim_gateway:
+    image: nim_gateway:latest
+    restart: unless-stopped
+    hostname: nim_gateway
+    container_name: nim_gateway
+    ports:
+      - '80:80'
+    networks:
+      - nim
+
+  nim_pg:
+    container_name: nim_pg
+    hostname: nim_pg
+    image: postgres:16.0-alpine3.18
+    restart: always
+    env_file:
+      - env/.pg.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '5433:5432'
+    networks:
+      - nim
+
+volumes:
+  pgdata:
