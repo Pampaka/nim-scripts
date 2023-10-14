@@ -17,6 +17,6 @@ docker-compose up -d nim_gateway
 #cd ../../../nim-gateway
 #docker build -t nim_gateway .
 ## shellcheck disable=SC2164
-#cd ../docker-scripts/nim-master
+#cd ../nim-scripts/nim-development
 #docker rm -f nim_gateway
 #docker-compose up -d nim_gateway

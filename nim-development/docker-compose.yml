@@ -29,5 +29,15 @@ services:
     networks:
       - nim
 
+  nim_auth:
+    image: nim_auth:latest
+    restart: unless-stopped
+    hostname: nim_auth
+    container_name: nim_auth
+    env_file:
+      - ./env/.auth.env
+    networks:
+      - nim
+
 volumes:
   pgdata:
