@@ -1,0 +1,1 @@
+CREATE DATABASE "nim-auth" with owner "nim-user";
